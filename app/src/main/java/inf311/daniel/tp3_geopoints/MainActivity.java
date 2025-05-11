@@ -34,11 +34,11 @@ public class MainActivity extends ListActivity {
 
         switch (position){
             case 0:
-
+                it.putExtra("coord", CASA);
                 startActivity(it);
                 break;
             case 1:
-
+                it.putExtra("coord", DPI);
                 startActivity(it);
                 break;
 
