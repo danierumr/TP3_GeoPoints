@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -22,10 +23,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
+        setContentView(R.layout.activity_map);
 
-        MapFragment f = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-        f.getMapAsync(this);
-
+        SupportMapFragment sMapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        sMapFrag.getMapAsync(this);
 
     }
 
