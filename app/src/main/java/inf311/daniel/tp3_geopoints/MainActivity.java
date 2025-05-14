@@ -34,7 +34,7 @@ public class MainActivity extends ListActivity {
         Intent it = new Intent(getBaseContext(), MapActivity.class);
         it.putExtra("casa_coord", CASA);
         it.putExtra("canada_coord", CANADA);
-        it.putExtra("casa_dpi", DPI);
+        it.putExtra("dpi_coord", DPI);
 
         switch (position){
             case 0:

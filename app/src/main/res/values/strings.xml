@@ -4,4 +4,5 @@
     <string name="home">CASA</string>
     <string name="canada">CANADA</string>
     <string name="dpi">DPI</string>
+    <string name="local">Localizacao</string>
 </resources>

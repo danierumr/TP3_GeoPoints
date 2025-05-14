@@ -3,18 +3,21 @@ package inf311.daniel.tp3_geopoints;
 
 
 import android.content.Intent;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -79,6 +82,30 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(DPI, 21);
         map.animateCamera(update);
+
+    }
+
+    public void onClick_Local(View v) {
+        if (map == null) return;
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
+
+        map.setMyLocationEnabled(true);
+
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+
+        map.setOnMyLocationChangeListener(location -> {
+            LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            map.addMarker(new MarkerOptions()
+                    .position(userLocation)
+                    .title("Você está aqui"))
+                    .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 18));
+
+        });
 
     }
 
