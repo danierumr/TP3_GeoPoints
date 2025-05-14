@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TP3_GeoPoints</string>
     <string name="title_map_activity">Map Activity</string>
+    <string name="home">CASA</string>
+    <string name="canada">CANADA</string>
+    <string name="dpi">DPI</string>
 </resources>
