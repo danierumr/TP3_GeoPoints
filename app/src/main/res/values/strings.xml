@@ -5,4 +5,5 @@
     <string name="canada">CANADA</string>
     <string name="dpi">DPI</string>
     <string name="local">Localizacao</string>
+    <string name="title_report_activity">Report Activity</string>
 </resources>
