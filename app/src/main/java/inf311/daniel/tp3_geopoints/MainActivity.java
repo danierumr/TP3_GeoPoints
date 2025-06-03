@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,6 +48,7 @@ public class MainActivity extends ListActivity {
 
         switch (position){
             case 0:
+                Toast.makeText(getBaseContext(), "Item Casa clicado", Toast.LENGTH_SHORT).show();
                 locationId = 1;
                 coord = getLocationById(locationId);
                 it.putExtra("coord", coord);
@@ -55,6 +57,7 @@ public class MainActivity extends ListActivity {
                 startActivity(it);
                 break;
             case 1:
+                Toast.makeText(getBaseContext(), "Item Canada clicado", Toast.LENGTH_SHORT).show();
                 locationId = 2;
                 coord = getLocationById(locationId);
                 it.putExtra("coord", coord);
@@ -63,6 +66,7 @@ public class MainActivity extends ListActivity {
                 startActivity(it);
                 break;
             case 2:
+                Toast.makeText(getBaseContext(), "Item DPI clicado", Toast.LENGTH_SHORT).show();
                 locationId = 3;
                 coord = getLocationById(locationId);
                 it.putExtra("coord", coord);
